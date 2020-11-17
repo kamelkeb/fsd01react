@@ -4,7 +4,7 @@ import styles from "./ExoCompteur.module.css";
 function ExoCompteur({ initialValue, incrValue, decrValue }) {
   const [compteur, setCompteur] = useState(initialValue);
   const compteurChangeHandler = (inc) => {
-    setCompteur((compteur) => compteur + inc);
+    setCompteur((compt) => compt + inc);
   };
   return (
     <div className={styles.ExoCompteur}>
