@@ -1,0 +1,18 @@
+.App-header {
+  background-color: #3f4144;
+  height: 100px;
+}
+
+.sidebar {
+  width: 25%;
+  min-height: 100vh;
+  background-color: lightslategray;
+}
+
+.main-column {
+  width: 75%;
+}
+
+.main-contener {
+  display: flex;
+}
