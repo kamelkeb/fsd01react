@@ -9,8 +9,10 @@ import ExoLogin from "./Components/ExoLogin/ExoLogin";
 
 export const App = () => {
   const [name, setName] = useState("");
-  const loginHandler = (name) => {
+  const [password, setPassword] = useState("");
+  const loginHandler = ({ name, password }) => {
     setName(name);
+    setPassword(password);
     // d'autres traitements en cas de login
   };
 
@@ -18,7 +20,7 @@ export const App = () => {
     <Wrapper className="App">
       <header className="App-header">
         <img src={hamburgerIcon} className="hamburger-icon" alt="menu" />
-        {name ? <h2>Login réussi, bonjour {name}!</h2> : null}
+        {name && password ? <h2>Login réussi, bonjour {name}!</h2> : null}
         <img src={settingsIcon} className="settings-icon" alt="settings" />
       </header>
       <div className="main-container">
