@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ExoLogin.module.css";
 
-function ExoLogin(arr) {
+function ExoLogin({ sendBackData }) {
   const [name, setName] = useState("");
 
   return (
@@ -10,7 +10,7 @@ function ExoLogin(arr) {
       <br />
       <input value={name} onChange={(e) => setName(e.target.value)}></input>
       <p>Bonjour {name}</p>
-      <button>Login</button>
+      <button onClick={() => sendBackData(name)}>Login</button>
     </div>
   );
 }

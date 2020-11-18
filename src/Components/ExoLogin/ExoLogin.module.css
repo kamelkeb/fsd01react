@@ -1,2 +1,5 @@
 .ExoLogin {
+  padding: 20px;
+  margin: var(--exoMargin);
+  height: var(--exoHeight);
 }

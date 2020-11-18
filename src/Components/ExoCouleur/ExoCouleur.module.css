@@ -1,7 +1,9 @@
 .ExoCompteur {
+  padding: 20px;
+  margin: var(--exoMargin);
   display: flex;
   flex-direction: row;
-  height: 25%;
+  height: var(--exoHeight);
   width: 100%;
   background-color: rgb(150, 207, 224);
 }
