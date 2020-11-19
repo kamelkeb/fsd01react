@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Link,
-  Switch,
-  NavLink,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import settingsIcon from "./assets/settings.svg";
@@ -16,6 +9,9 @@ import ExoCompteur from "./Components/ExoCompteur/ExoCompteur";
 import ExoCouleur from "./Components/ExoCouleur/ExoCouleur";
 import ExoLogin from "./Components/ExoLogin/ExoLogin";
 import SideBar from "./Components/SideBar/SideBar";
+
+import { IonReactRouter } from "@ionic/react-router";
+import { IonRouterOutlet } from "@ionic/react";
 
 export const App = () => {
   const [name, setName] = useState("");
@@ -27,6 +23,10 @@ export const App = () => {
     // d'autres traitements en cas de login
     setLoggedin(true);
   };
+
+  const computeMyComp = () => (
+    <ExoCompteur initialValue={0} loggedIn={loggedIn} />
+  );
 
   return (
     <BrowserRouter className="App">
@@ -49,9 +49,7 @@ export const App = () => {
             <Route path="/login">
               <ExoLogin sendBackData={loginHandler}></ExoLogin>
             </Route>
-            <Route path="/compteur/:deltaParam">
-              <ExoCompteur initialValue={0} loggedIn={loggedIn} />
-            </Route>
+            <Route path="/compteur/:deltaParam" render={computeMyComp}></Route>
 
             <Route path="/couleurs">
               {loggedIn ? <ExoCouleur /> : <Redirect to="/login" />}

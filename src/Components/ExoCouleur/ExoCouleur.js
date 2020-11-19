@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ExoCouleur.module.css";
+import { IonButton } from "@ionic/react";
 
 function ExoCouleur() {
   const [colors, setColor] = useState([]);
@@ -10,12 +11,9 @@ function ExoCouleur() {
 
   return (
     <div className={styles.ExoCompteur}>
-      <button
-        style={{ width: "200px", height: "100px", marginRight: "50px" }}
-        onClick={() => addColor(genHexColor())}
-      >
+      <IonButton color="tertiary" onClick={() => addColor(genHexColor())}>
         Add color
-      </button>
+      </IonButton>
       {colors.map((m) => (
         <div
           style={{ width: "100px", height: "100px", backgroundColor: m }}
