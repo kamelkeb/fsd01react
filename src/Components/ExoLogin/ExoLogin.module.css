@@ -1,5 +1,6 @@
-.ExoLogin {
+.loginFormContainer {
   padding: 20px;
   margin: var(--exoMargin);
   height: var(--exoHeight);
+  max-width: 50vh;
 }

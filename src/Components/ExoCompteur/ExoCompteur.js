@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./ExoCompteur.module.css";
 import { useParams, useHistory, Redirect } from "react-router-dom";
+import { IonPage } from "@ionic/react";
 
 function ExoCompteur({ initialValue, loggedIn }) {
   const [compteur, setCompteur] = useState(initialValue);
@@ -22,7 +23,7 @@ function ExoCompteur({ initialValue, loggedIn }) {
     history.push(`/compteur/${newDelta}`);
   };
   return (
-    <div className={styles.ExoCompteur}>
+    <IonPage className={styles.ExoCompteur}>
       <button onClick={() => compteurChangeHandler(+delta)}>
         Incrémenter de {delta}
       </button>
@@ -39,7 +40,7 @@ function ExoCompteur({ initialValue, loggedIn }) {
         }}
       ></input>
       <button onClick={() => changeDeltaHandler(newDelta)}>Valider</button>
-    </div>
+    </IonPage>
   );
 }
 

@@ -26,7 +26,6 @@ function SideBar() {
         <NavLink to="/compteur/1">
           <IonButton fill="clear">Compteur</IonButton>
         </NavLink>
-
         <NavLink to="/couleurs">
           <IonButton fill="clear">Génération de carrés colorés</IonButton>
         </NavLink>

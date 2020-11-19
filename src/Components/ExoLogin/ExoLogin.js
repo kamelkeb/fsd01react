@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import styles from "./ExoLogin.module.css";
+import classes from "./ExoLogin.module.css";
+import {
+  IonPage,
+  IonButton,
+  IonContent,
+  IonLabel,
+  IonInput,
+  IonItem,
+  IonText,
+} from "@ionic/react";
+
+import Header from "../Header/Header";
 
 function ExoLogin({ sendBackData }) {
   const [name, setName] = useState("");
@@ -16,26 +27,40 @@ function ExoLogin({ sendBackData }) {
   };
 
   return (
-    <div className={styles.ExoLogin}>
-      <label>Nom</label>
-      <br />
-      <input value={name} onChange={(e) => setName(e.target.value)}></input>
+    <IonPage className="ion-align-items-center">
+      <Header name={name} password={password}></Header>
+      <IonContent className={classes.loginFormContainer}>
+        <IonItem>
+          <IonLabel position="stacked">Nom</IonLabel>
+          <IonInput
+            value={name}
+            onIonChange={(e) => setName(e.detail.value)}
+            size
+          ></IonInput>
+        </IonItem>
+        <IonItem>
+          <IonLabel position="stacked">Mot de passe</IonLabel>
+          <IonInput
+            value={password}
+            type="password"
+            onIonChange={(e) => setPassword(e.detail.value)}
+          ></IonInput>
+        </IonItem>
+        {errPasswordLength ? (
+          <IonText>
+            Le mot de passe doit comporter au moins 6 caractères
+          </IonText>
+        ) : null}
 
-      <br />
-      <label>Mot de passe</label>
-      <br />
-      <input
-        value={password}
-        type="password"
-        onChange={(e) => setPassword(e.target.value)}
-      ></input>
-      <br />
-      {errPasswordLength ? (
-        <label>Le mot de passe doit comporter au moins 6 caractères</label>
-      ) : null}
-      <br />
-      <button onClick={checkInputValuesAndSendData}>Login</button>
-    </div>
+        <IonButton
+          onClick={checkInputValuesAndSendData}
+          fill="outline"
+          size="small"
+        >
+          Login
+        </IonButton>
+      </IonContent>
+    </IonPage>
   );
 }
 
