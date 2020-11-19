@@ -1,0 +1,13 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 25%;
+  min-height: 100vh;
+  background-color: lightslategray;
+}
+
+.menuEntry {
+  margin: 25px;
+}
