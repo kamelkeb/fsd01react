@@ -1,24 +1,37 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./SideBar.module.css";
+import {
+  IonSplitPane,
+  IonContent,
+  IonMenu,
+  IonToolbar,
+  IonHeader,
+  IonTitle,
+  IonPage,
+  IonList,
+  IonButton,
+  IonItem,
+} from "@ionic/react";
 
 function SideBar() {
   return (
-    <div className={styles.sidebar}>
-      <ul>
+    <IonMenu contentId="idMenu1" side="start" menuId="first">
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Sommaire</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
         <NavLink to="/compteur/1">
-          <li className={styles.menuEntry}>Exemple basique n°1: Compteur</li>
+          <IonButton fill="clear">Compteur</IonButton>
         </NavLink>
+
         <NavLink to="/couleurs">
-          <li className={styles.menuEntry}>
-            Exemple basique n°2: Génération de carrés colorés
-          </li>
+          <IonButton fill="clear">Génération de carrés colorés</IonButton>
         </NavLink>
-        <NavLink to="/login">
-          <li className={styles.menuEntry}>Login (accès à contenu privé)</li>
-        </NavLink>
-      </ul>
-    </div>
+      </IonContent>
+    </IonMenu>
   );
 }
 
